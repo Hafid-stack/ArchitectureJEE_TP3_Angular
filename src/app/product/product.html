@@ -1,1 +1,41 @@
-<p>product works!</p>
+<div class="p-3">
+  <div class="card-body">
+
+    <div>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Product ID</th><th>Name</th><th>price</th><th>Selected</th>
+        </tr>
+
+        </thead>
+        @if (products){
+          <tbody>
+            @for (p of products; track p){
+              <tr >
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td>
+                  @if (p.selected){
+                    <i class="bi bi-check-circle"></i>
+                  } @else {
+                    <i class="bi bi-circle"></i>
+                  }
+
+                </td>
+                <td>
+                  <button (click)="handleDelete(p)" class="btn btn-outline-danger" >
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            }
+
+          </tbody>
+        }
+      </table>
+    </div>
+  </div>
+
+</div>
